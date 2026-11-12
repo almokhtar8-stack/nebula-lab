@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 REPO_URL = "https://github.com/almokhtar8-stack/nebula-lab"
 RAW = "https://raw.githubusercontent.com/almokhtar8-stack/nebula-lab/{ref}/"
-REFS = ("main", "v1.0")            # the Colab link opens main; the notebook downloads from the v1.0 tag
+REFS = ("main", "v1.0")            # the Colab link opens main; the notebook downloads from the v1.0 branch
 FILES = ["README.md", "NEBULA_Lab.ipynb", "NEBULA_Lab_completed.ipynb", "nebula_lab.py",
          "data/nebula_blood_atac_rna.csv.gz", "assets/fu2025_fig1c.png"]
 INK = "#123E38"

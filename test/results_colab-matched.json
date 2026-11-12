@@ -63,7 +63,7 @@
     {
       "check": "five classroom steps run in under 20 s of compute",
       "pass": true,
-      "detail": "4.6 s (steps: 2.7, 0.6, 0.5, 0.5, 0.4)"
+      "detail": "4.1 s (steps: 2.3, 0.5, 0.4, 0.5, 0.4)"
     },
     {
       "check": "step 1 reports the full table",
@@ -167,20 +167,20 @@
     }
   ],
   "timings": {
-    "whole_notebook_s": 29.6,
+    "whole_notebook_s": 11.7,
     "core_steps_s": [
-      2.73,
-      0.58,
-      0.48,
-      0.48,
-      0.38
+      2.34,
+      0.52,
+      0.39,
+      0.46,
+      0.37
     ],
     "optional_s": [
-      0.24,
-      0.12,
-      2.12,
-      0.18,
-      20.68,
+      0.26,
+      0.13,
+      2.13,
+      0.2,
+      3.4,
       0.28,
       0.0,
       0.01,
