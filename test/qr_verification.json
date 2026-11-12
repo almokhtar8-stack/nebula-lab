@@ -1,0 +1,92 @@
+{
+  "checked_at": "2026-11-12T12:27:43+00:00",
+  "repo": "https://github.com/almokhtar8-stack/nebula-lab",
+  "files": [
+    {
+      "ref": "main",
+      "file": "README.md",
+      "local_sha256": "a102f5d5cd2562d395cf0536cf0f20b89507b5584d5058cdf405391c7ca8dbf2",
+      "remote_sha256": "a102f5d5cd2562d395cf0536cf0f20b89507b5584d5058cdf405391c7ca8dbf2",
+      "identical": true
+    },
+    {
+      "ref": "main",
+      "file": "NEBULA_Lab.ipynb",
+      "local_sha256": "102273e455daa3cd10440b12f145a50e0c0053b2cc20a33dd14605ce6b977ef6",
+      "remote_sha256": "102273e455daa3cd10440b12f145a50e0c0053b2cc20a33dd14605ce6b977ef6",
+      "identical": true
+    },
+    {
+      "ref": "main",
+      "file": "NEBULA_Lab_completed.ipynb",
+      "local_sha256": "0807505e6139318608c83ed6bf2c282ff613f553c3ef85e6097ada1ec25dad04",
+      "remote_sha256": "0807505e6139318608c83ed6bf2c282ff613f553c3ef85e6097ada1ec25dad04",
+      "identical": true
+    },
+    {
+      "ref": "main",
+      "file": "nebula_lab.py",
+      "local_sha256": "5b8c29a82a5083cb4e15709c225b6d7b9dee3a985eec365b2333358cd8403641",
+      "remote_sha256": "5b8c29a82a5083cb4e15709c225b6d7b9dee3a985eec365b2333358cd8403641",
+      "identical": true
+    },
+    {
+      "ref": "main",
+      "file": "data/nebula_blood_atac_rna.csv.gz",
+      "local_sha256": "27e231764bc10380d5d0ff44db8606acfb0636c831a84108cf43a4123e0eef3f",
+      "remote_sha256": "27e231764bc10380d5d0ff44db8606acfb0636c831a84108cf43a4123e0eef3f",
+      "identical": true
+    },
+    {
+      "ref": "main",
+      "file": "assets/fu2025_fig1c.png",
+      "local_sha256": "13ae083b538b4677bc8ec4e0967ee81765dbb533fc79735c523bdcc5848523d1",
+      "remote_sha256": "13ae083b538b4677bc8ec4e0967ee81765dbb533fc79735c523bdcc5848523d1",
+      "identical": true
+    },
+    {
+      "ref": "v1.0",
+      "file": "README.md",
+      "local_sha256": "a102f5d5cd2562d395cf0536cf0f20b89507b5584d5058cdf405391c7ca8dbf2",
+      "remote_sha256": "a102f5d5cd2562d395cf0536cf0f20b89507b5584d5058cdf405391c7ca8dbf2",
+      "identical": true
+    },
+    {
+      "ref": "v1.0",
+      "file": "NEBULA_Lab.ipynb",
+      "local_sha256": "102273e455daa3cd10440b12f145a50e0c0053b2cc20a33dd14605ce6b977ef6",
+      "remote_sha256": "102273e455daa3cd10440b12f145a50e0c0053b2cc20a33dd14605ce6b977ef6",
+      "identical": true
+    },
+    {
+      "ref": "v1.0",
+      "file": "NEBULA_Lab_completed.ipynb",
+      "local_sha256": "0807505e6139318608c83ed6bf2c282ff613f553c3ef85e6097ada1ec25dad04",
+      "remote_sha256": "0807505e6139318608c83ed6bf2c282ff613f553c3ef85e6097ada1ec25dad04",
+      "identical": true
+    },
+    {
+      "ref": "v1.0",
+      "file": "nebula_lab.py",
+      "local_sha256": "5b8c29a82a5083cb4e15709c225b6d7b9dee3a985eec365b2333358cd8403641",
+      "remote_sha256": "5b8c29a82a5083cb4e15709c225b6d7b9dee3a985eec365b2333358cd8403641",
+      "identical": true
+    },
+    {
+      "ref": "v1.0",
+      "file": "data/nebula_blood_atac_rna.csv.gz",
+      "local_sha256": "27e231764bc10380d5d0ff44db8606acfb0636c831a84108cf43a4123e0eef3f",
+      "remote_sha256": "27e231764bc10380d5d0ff44db8606acfb0636c831a84108cf43a4123e0eef3f",
+      "identical": true
+    },
+    {
+      "ref": "v1.0",
+      "file": "assets/fu2025_fig1c.png",
+      "local_sha256": "13ae083b538b4677bc8ec4e0967ee81765dbb533fc79735c523bdcc5848523d1",
+      "remote_sha256": "13ae083b538b4677bc8ec4e0967ee81765dbb533fc79735c523bdcc5848523d1",
+      "identical": true
+    }
+  ],
+  "all_identical": true,
+  "qr_decodes_to": "https://github.com/almokhtar8-stack/nebula-lab"
+}

@@ -8,7 +8,7 @@
     {
       "check": "classroom notebook is small (no data inside)",
       "pass": true,
-      "detail": "16,814 bytes"
+      "detail": "15,659 bytes"
     },
     {
       "check": "classroom notebook has no saved outputs",
@@ -18,7 +18,7 @@
     {
       "check": "no encoded data blocks in any cell",
       "pass": true,
-      "detail": "longest unbroken token: 116 chars"
+      "detail": "longest unbroken token: 101 chars"
     },
     {
       "check": "five numbered classroom code cells",
@@ -63,7 +63,7 @@
     {
       "check": "five classroom steps run in under 20 s of compute",
       "pass": true,
-      "detail": "3.9 s (steps: 2.3, 0.5, 0.5, 0.4, 0.3)"
+      "detail": "5.2 s (steps: 3.1, 0.6, 0.6, 0.5, 0.4)"
     },
     {
       "check": "step 1 reports the full table",
@@ -167,25 +167,25 @@
     }
   ],
   "timings": {
-    "whole_notebook_s": 11.7,
+    "whole_notebook_s": 43.6,
     "core_steps_s": [
-      2.27,
-      0.46,
-      0.46,
-      0.4,
-      0.32
+      3.07,
+      0.63,
+      0.57,
+      0.54,
+      0.42
     ],
     "optional_s": [
+      0.25,
+      0.12,
+      2.14,
       0.2,
-      0.11,
-      1.63,
-      0.15,
-      3.24,
-      0.24,
+      33.03,
+      0.28,
       0.0,
       0.01,
-      0.05,
-      0.09
+      0.07,
+      0.11
     ]
   },
   "independent": {
@@ -215,5 +215,5 @@
     "sklearn": "1.6.1",
     "matplotlib": "3.10.0"
   },
-  "completed_notebook_bytes": 3193498
+  "completed_notebook_bytes": 3192177
 }

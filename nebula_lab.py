@@ -127,10 +127,6 @@ def _style():
         "axes.spines.right": False, "axes.grid": True, "grid.color": GRID, "grid.linewidth": 0.8,
         "legend.frameon": False, "figure.dpi": 100, "axes.axisbelow": True,
     })
-    try:
-        get_ipython().run_line_magic("config", "InlineBackend.figure_format = 'retina'")  # noqa: F821
-    except Exception:
-        pass
 
 
 _style()
@@ -142,6 +138,23 @@ def _html(s):
         print(re.sub(r"<[^>]+>", "", s))
     else:
         display(HTML(s))
+
+
+def _show(fig):
+    """Display a figure at twice the screen resolution, labelled with its width only. Colab sizes
+    an image from both width and height when both are given, so a screen narrower than the figure
+    squeezes it sideways; with the width alone it scales down evenly."""
+    import io
+    buf = io.BytesIO()
+    fig.savefig(buf, format="png", dpi=2 * fig.dpi, bbox_inches="tight",
+                facecolor=fig.get_facecolor(), edgecolor=fig.get_edgecolor())
+    plt.close(fig)
+    if HTML is None:                      # plain Python: nothing to draw on
+        return
+    from IPython.display import Image
+    png = buf.getvalue()
+    width = int.from_bytes(png[16:20], "big") // 2          # PNG header: pixel width
+    display(Image(data=png, format="png", width=width))
 
 
 def _card(title, body, kind="info"):
@@ -300,7 +313,7 @@ def _plot_markers(df):
                  "is most open or most expressed. The two mostly match, but open DNA does not always mean an "
                  "expressed gene.")
     fig.subplots_adjust(top=top, bottom=0.17, left=0.06, right=0.99)
-    plt.show()
+    _show(fig)
 
 
 # --------------------------------------------------------------------------------------------
@@ -362,7 +375,7 @@ def show_training(model, train, features=("promoter",)):
                  "Genes with more open promoters tend to make more RNA. The spread around the line "
                  "is what the model cannot explain.", gap=0.2)
     fig.subplots_adjust(top=top, left=0.1, right=0.98, bottom=0.12)
-    plt.show()
+    _show(fig)
 
 
 # --------------------------------------------------------------------------------------------
@@ -421,7 +434,7 @@ def show_predictions(test, predicted):
                  f"Each dot is one gene ({m['n']:,} genes with an open promoter). "
                  f"Labelled: marker genes of {CELL_NAMES[held]}.")
     fig.subplots_adjust(top=top, left=0.12, right=0.97, bottom=0.09)
-    plt.show()
+    _show(fig)
 
     err = test.expression.to_numpy() - predicted
     worst = test.gene.to_numpy()[int(np.argmax(np.abs(err)))]
@@ -498,7 +511,7 @@ def compare(test, predicted_before, predicted_now, features, model_now):
     now_title = ("Your choice, option B: promoter + nearby features" if key == "B"
                  else "Your choice, option A: the step 3 model again")
     _scatter(ax2, test, predicted_now, now_title, m_now, markers=False, decimals=3)
-    plt.show()
+    _show(fig)
 
     if key == "B":
         diff = m_now["r"] - m_before["r"]
@@ -597,7 +610,7 @@ def meet_get():
                  "The tissues, genes and models differ, so only the order of the bars is comparable. "
                  "Right: the values printed on the published panels, redrawn.", gap=0.75)
     fig.subplots_adjust(top=top, bottom=0.1, left=0.235, right=0.99)
-    plt.show()
+    _show(fig)
     _html(_card("The same pattern",
                 "In both experiments, accessibility alone loses to copying each gene's average expression. "
                 "GET is the only real predictor that beats that control (0.94 against 0.78). The best-matching "
@@ -644,7 +657,7 @@ def identity_genes(test, predicted, n=8):
                   "Picked from the inputs alone: promoter openness here minus its average in the 15 training "
                   "cell types. The control cannot see that change; the accessibility model can.", gap=0.55)
     fig.subplots_adjust(top=ytop, left=0.12, right=0.98, bottom=0.13)
-    plt.show()
+    _show(fig)
 
     def closer(frame):
         return int((abs(frame.model - frame.expression) < abs(frame.average_in_training - frame.expression)).sum())
@@ -726,7 +739,7 @@ def all_cell_types(df):
                  f"A: {res.A.min():.2f} to {res.A.max():.2f}. B minus A: {d.min():+.3f} to {d.max():+.3f}. "
                  f"Control: {res.control.min():.2f} to {res.control.max():.2f}.", gap=0.2)
     fig.subplots_adjust(top=top, bottom=0.2, left=0.08, right=0.99)
-    plt.show()
+    _show(fig)
     return res.round(3)
 
 
@@ -823,4 +836,4 @@ def pretraining_matters():
                  "Published values, Fu et al. 2025, Extended Data Fig. 2d (control line from the same panel), "
                  "redrawn.", gap=0.2)
     fig.subplots_adjust(top=top, bottom=0.17, left=0.33, right=0.97)
-    plt.show()
+    _show(fig)

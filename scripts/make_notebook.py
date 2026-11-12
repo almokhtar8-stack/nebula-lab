@@ -5,7 +5,6 @@
 The completed version (all outputs saved) is produced by executing this notebook:
 see scripts/run_and_test.py.
 """
-import html
 import sys
 from pathlib import Path
 
@@ -37,14 +36,13 @@ def code(text, form=False):
 
 
 WELCOME = f"""
-<div style="background:{INK};border-radius:4px;padding:24px 28px 20px;color:{BG};">
-<div style="font-family:{SANS};font-size:13px;line-height:1.4;color:#A9CFC5;">KAUST B224 journal club &middot; Project Nebula</div>
-<div style="font-family:{SERIF};font-size:44px;line-height:1.1;font-weight:700;margin:8px 0 6px;color:{BG};">NEBULA LAB</div>
-<div style="font-family:{SERIF};font-size:21px;line-height:1.3;color:#E3EEEA;">Build Your Own Gene Expression Predictor</div>
-<div style="font-family:{SANS};font-size:14px;line-height:1.4;color:#CFE3DD;margin-top:14px;">&#9312; Data &rarr; &#9313; Train &rarr; &#9314; Predict &rarr; &#9315; Experiment &rarr; &#9316; Discover</div>
-</div>
+<sub>KAUST B224 journal club &middot; Project Nebula</sub>
 
-<p style="font-size:17px;margin:16px 0 6px;"><b>Can a computer predict how strongly genes are expressed using regulatory information? Let's find out.</b></p>
+# NEBULA LAB
+## Build Your Own Gene Expression Predictor
+&#9312; Data &rarr; &#9313; Train &rarr; &#9314; Predict &rarr; &#9315; Experiment &rarr; &#9316; Discover
+
+**Can a computer predict how strongly genes are expressed using regulatory information? Let's find out.**
 
 This is a simplified educational model. It is not the GET foundation model. The measurements are real; the model is one straight line.
 
@@ -85,7 +83,7 @@ We hide one cell type, erythroid precursors (the cells that become red blood cel
 """
 
 STEP2 = """
-#@title ② Train the model
+#@title ② Fit the line
 HELD_OUT = "Ery"                                       # erythroid precursors: kept aside, never seen
 train, test = lab.split(data, HELD_OUT)                # 15 cell types to learn from, 1 to test on
 
@@ -133,10 +131,12 @@ GET, the *general expression transformer* (Fu *et al.*, *Nature* 2025), asks the
 
 | | Your model | GET |
 |:---|:---|:---|
-| What it reads | 1 or 2 numbers per gene: how open the DNA is | a window of 200 neighbouring open regions, each described by scores for 282 clusters of transcription-factor motifs plus its openness |
-| The model | a straight line | a 12-layer transformer whose *attention* weighs every region against every other |
-| How it learns | from 274,275 examples in 15 blood cell types | first *pretrained* on chromatin from 213 cell types by hiding parts of the input and filling them back in, then *fine-tuned* to predict expression, using the cell types that also had RNA data (153 in all) |
-| The test | erythroid precursors, held out of all training | fetal astrocytes, held out of the expression fine-tuning stage |
+| Reads | 1 or 2 numbers per gene | 200 nearby open regions |
+| Model | a straight line | a 12-layer transformer |
+| Learns from | 15 blood cell types | 213 cell types |
+| Tested on | erythroid precursors | fetal astrocytes |
+
+Each GET region carries its openness plus scores for 282 clusters of transcription-factor motifs, and the transformer's *attention* weighs every region against every other. GET was first *pretrained* on chromatin by hiding parts of the input and filling them back in, then *fine-tuned* to predict expression in the 153 cell types that also had RNA data. The fetal astrocytes were held out of that second stage.
 
 This is the published Figure 1c. Each dot is a gene in fetal astrocytes, laid out like your plot: prediction along the bottom, measured expression up the side. GET is top left; the other four panels are the comparisons the authors chose. The bottom row uses accessibility alone, as your model does.
 
@@ -227,7 +227,7 @@ def build(path):
              md(OPTIONAL_HEAD)]
     for title, text, body in OPTIONAL:
         cells.append(md(f"#### {title}\n{text}"))
-        cells.append(code(f"#@title {html.unescape(title.split(' &middot; ')[1])}\n{body}"))
+        cells.append(code(body))
     cells.append(md(CREDITS))
     for i, cell in enumerate(cells):          # fixed ids, so a rebuild is byte-identical
         cell.id = f"nebula-{i:02d}"
