@@ -46,7 +46,7 @@ WELCOME = f"""
 
 This is a simplified educational model. It is not the GET foundation model. The measurements are real; the model is one straight line.
 
-Run each numbered cell from top to bottom: click &#9654; at the cell's left, or press Shift + Enter. The first run can take 10 to 20 seconds while Colab starts a computer for you. If Colab warns that the notebook was not authored by Google, click Run anyway.
+Run each numbered cell from top to bottom: click &#9654; at the cell's left, or press Shift + Enter. The first run can take up to half a minute while Colab starts a computer for you. If Colab warns that the notebook was not authored by Google, click Run anyway.
 
 <sub>On a phone or without a Google account, see every result on [the project page]({REPO_URL}) or in the [completed notebook]({COMPLETED}).</sub>
 """
@@ -172,14 +172,14 @@ OPTIONAL = [
      'other = "B"  #@param ["HSC", "MPP", "LMPP", "CMP", "GMP-A", "GMP-B", "GMP-C", "Mono", "pDC", "MEP", "Ery", "CLP", "B", "CD4", "CD8", "NK"]\n'
      "lab.try_cell_type(data, other)"),
     ("3 &middot; Every cell type at once",
-     "Hold out each of the 16 cell types in turn and train both models every time (about 2 seconds).",
+     "Hold out each of the 16 cell types in turn and train both models every time (about 4 seconds in Colab).",
      "lab.all_cell_types(data)"),
     ("4 &middot; How far is &ldquo;nearby&rdquo;?",
      "The table also holds openness within 10, 100 and 250 kb. Does looking further help?",
      "lab.distance_sweep(data, HELD_OUT)"),
     ("5 &middot; A more flexible model",
      "A straight line cannot bend; gradient-boosted decision trees can. Does that flexibility let nearby "
-     "regions help? (about 5 seconds)",
+     "regions help? (about 10 seconds in Colab)",
      "lab.flexible_model(train, test)"),
     ("6 &middot; Which gene, or which cell type?",
      "A prediction can score well because it knows *which gene* this is (housekeeping genes are high "

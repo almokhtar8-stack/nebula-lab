@@ -165,6 +165,13 @@ def _card(title, body, kind="info"):
             f'<div style="font-size:14px;line-height:1.55;">{body}</div></div>')
 
 
+def _note(text):
+    """One short paragraph under a result. Printed text never wraps in Colab, so long sentences
+    go here instead."""
+    _html(f'<div style="color:{INK};background:{BG};font-family:sans-serif;font-size:14px;'
+          f'line-height:1.5;max-width:860px;padding:6px 12px;">{text}</div>')
+
+
 def _scroll(inner):
     """Wrap a table so that a narrow screen scrolls it sideways instead of cutting columns off."""
     return (f'<div style="overflow-x:auto;max-width:100%;background:{BG};padding:8px 12px;'
@@ -662,7 +669,7 @@ def identity_genes(test, predicted, n=8):
     def closer(frame):
         return int((abs(frame.model - frame.expression) < abs(frame.average_in_training - frame.expression)).sum())
     top50 = ranked.head(50)
-    print(f"The accessibility model is closer to the measurement than the control for {closer(top)} of these "
+    _note(f"The accessibility model is closer to the measurement than the control for {closer(top)} of these "
           f"{len(top)} genes, and for {closer(top50)} of the top 50.")
 
 
@@ -795,9 +802,9 @@ def cell_type_specific(df, held_out="Ery"):
         specific = float(np.corrcoef(change, measured_change)[0, 1]) if np.std(change) > 1e-9 else 0.0
         out[name] = (_metrics(test.expression, pred)["r"], specific)
     res = pd.DataFrame(out, index=["overall r", "cell-type-specific r"]).T.round(3)
-    print("cell-type-specific r: does the model's change for this cell type (its prediction minus its own")
-    print("average prediction for that gene) match the measured change (measured minus the gene's usual level)?")
-    print("A model whose prediction never changes between cell types scores 0.\n")
+    _note("<b>Cell-type-specific r</b>: does the model's change for this cell type (its prediction minus its "
+          "own average prediction for that gene) match the measured change (measured minus the gene's usual "
+          "level)? A model whose prediction never changes between cell types scores 0.")
     return res
 
 
@@ -812,7 +819,7 @@ def all_genes_vs_open(df, held_out="Ery"):
     closed = len(every) - len(opn)
     print(f"Scoring genes with an open promoter ({len(opn):,}):   r = {r_open:.3f}")
     print(f"Scoring every gene, closed ones too ({len(every):,}): r = {r_all:.3f}")
-    print(f"\nThe {closed:,} closed-promoter genes are easy: closed DNA, almost no RNA. Including them "
+    _note(f"The {closed:,} closed-promoter genes are easy: closed DNA, almost no RNA. Including them "
           "makes the same model look better without it learning anything new.")
 
 

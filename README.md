@@ -12,7 +12,7 @@ The model here is a simplified teaching model, not the GET foundation model.
 
 ## The five steps
 
-These are the outputs of the notebook run in a local Jupyter kernel with Colab-era package versions. The analysis is deterministic, so every run gives the same numbers.
+These are the notebook's own outputs. It was run in Google Colab on 12 November 2026 and in two local package environments, and all three gave the same numbers, as expected from a deterministic analysis.
 
 ### ① Data: 16 kinds of human blood cells
 How open the DNA is around each gene (ATAC-seq) and how much RNA it makes (RNA-seq), for 18,285 genes in 16 cell types.
@@ -65,7 +65,7 @@ pip install numpy pandas scikit-learn matplotlib jupyter
 jupyter notebook NEBULA_Lab.ipynb
 ```
 
-The notebook finds `nebula_lab.py` and the data next to it, or downloads them. On 2 CPU cores (the size of a free Colab session) the five classroom steps compute in about 4 seconds, and the whole notebook, optional exercises included, in about 11. No GPU is needed.
+The notebook finds `nebula_lab.py` and the data next to it, or downloads them. In a fresh Colab session (2 CPU cores) the five classroom steps took 10 seconds, 7.5 of them in step 1 while it downloads and checks the files, and the whole notebook, optional exercises included, took 25. No GPU is needed.
 
 ## Credits
 

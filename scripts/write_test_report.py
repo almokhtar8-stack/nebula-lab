@@ -74,7 +74,7 @@ The test script recomputes the headline results straight from the CSV with NumPy
 
 * Five classroom steps: {sum(t['core_steps_s']):.1f} s of computing in total ({', '.join(f'{s:.1f}' for s in t['core_steps_s'])} s). Step ① includes reading and checking the 3.9 MB data file.
 * Whole notebook including all ten optional exercises: {t['whole_notebook_s']:.1f} s wall time, kernel start included.
-* Not included: Colab's own start-up (typically 10 to 30 s to connect a runtime) and the download from GitHub (about 4 MB).
+* Not included: connecting a Colab runtime and downloading the files from GitHub (about 4 MB). The timings measured in Colab itself, which include both, are under "Real Colab".
 
 ## Failure paths tested
 
@@ -87,7 +87,7 @@ The test script recomputes the headline results straight from the CSV with NumPy
 
 ## Visual review
 
-Every figure was inspected at laptop and phone widths in a Jupyter rendering of the executed notebook. An independent review then recomputed every headline number (all matched), found no leakage, and raised 23 points on wording, metrics, timing, phone layout and visuals. Each point that could be fixed before publication was fixed and retested; the rest are listed under "Real Colab".
+Every figure was inspected at laptop and phone widths in a Jupyter rendering of the executed notebook. An independent review then recomputed every headline number (all matched), found no leakage, and raised 23 points on wording, metrics, timing, phone layout and visuals. Each point that could be fixed before publication was fixed and retested. The run in Colab itself then found layout problems that a Jupyter rendering does not show; they are listed, with their fixes, under "Real Colab".
 
 ## Publication checks
 
