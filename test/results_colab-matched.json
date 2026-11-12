@@ -1,0 +1,219 @@
+{
+  "checks": [
+    {
+      "check": "notebook is valid nbformat 4",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "classroom notebook is small (no data inside)",
+      "pass": true,
+      "detail": "16,814 bytes"
+    },
+    {
+      "check": "classroom notebook has no saved outputs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no encoded data blocks in any cell",
+      "pass": true,
+      "detail": "longest unbroken token: 116 chars"
+    },
+    {
+      "check": "five numbered classroom code cells",
+      "pass": true,
+      "detail": "5 core, 15 total"
+    },
+    {
+      "check": "visible classroom cells are short",
+      "pass": true,
+      "detail": "longest: 8 lines"
+    },
+    {
+      "check": "no em dashes in student-facing text",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "house-style word list respected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "dropdown options match the lab's feature sets",
+      "pass": true,
+      "detail": "\"Option A: promoter features only\", \"Option B: promoter + nearby regulatory features\""
+    },
+    {
+      "check": "cell-type dropdown lists all 16 cell types",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "every cell ran without an error",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "no warnings or stderr output",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "five classroom steps run in under 20 s of compute",
+      "pass": true,
+      "detail": "3.9 s (steps: 2.3, 0.5, 0.5, 0.4, 0.3)"
+    },
+    {
+      "check": "step 1 reports the full table",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "step 1 draws one figure",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "step 2 trained on every training row",
+      "pass": true,
+      "detail": "274,275"
+    },
+    {
+      "check": "step 3 r matches independent recomputation",
+      "pass": true,
+      "detail": "printed 0.62, independent 0.6211"
+    },
+    {
+      "check": "step 3 R^2 matches",
+      "pass": true,
+      "detail": "printed 0.3, independent 0.2984"
+    },
+    {
+      "check": "step 3 median error matches",
+      "pass": true,
+      "detail": "printed 3.3, independent 3.270"
+    },
+    {
+      "check": "step 3 calibration statement matches",
+      "pass": true,
+      "detail": "printed 70%, independent 70.2%"
+    },
+    {
+      "check": "step 4 compares A and B with the right numbers",
+      "pass": true,
+      "detail": "printed ('0.621', '0.616'), independent 0.621 / 0.616"
+    },
+    {
+      "check": "step 4 verdict follows the data, not a script",
+      "pass": true,
+      "detail": "no meaningful difference"
+    },
+    {
+      "check": "step 4 control value matches",
+      "pass": true,
+      "detail": "printed 0.77, independent 0.7733"
+    },
+    {
+      "check": "step 5 quotes GET's published r = 0.94 and labels it published",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "completed copy saved",
+      "pass": true,
+      "detail": "3.2 MB"
+    },
+    {
+      "check": "rerun reproduces every output exactly (text, tables and images)",
+      "pass": true,
+      "detail": "15/15 cells identical"
+    },
+    {
+      "check": "option A reproduces step 3 exactly and says so",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "option A run has no errors",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "step 5 fills in the skipped experiment itself",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "missing data gives the friendly 'could not be downloaded' card",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "missing data stops quietly, without a long traceback",
+      "pass": true,
+      "detail": "SystemExit, 2 traceback lines"
+    },
+    {
+      "check": "missing lab code gives a one-line message with the fallback link",
+      "pass": true,
+      "detail": "ERROR SystemExit: Could not download the lab files. Follow along on the projector, or see every result on the project pa"
+    },
+    {
+      "check": "a damaged data file is never used",
+      "pass": true,
+      "detail": "checksum caught it"
+    }
+  ],
+  "timings": {
+    "whole_notebook_s": 11.7,
+    "core_steps_s": [
+      2.27,
+      0.46,
+      0.46,
+      0.4,
+      0.32
+    ],
+    "optional_s": [
+      0.2,
+      0.11,
+      1.63,
+      0.15,
+      3.24,
+      0.24,
+      0.0,
+      0.01,
+      0.05,
+      0.09
+    ]
+  },
+  "independent": {
+    "n_test": 14826,
+    "n_train": 274275,
+    "r_A": 0.6210534557965134,
+    "R2_A": 0.2983666899060904,
+    "fold_A": 3.27048361327878,
+    "rmse_A": 2.3261812849829306,
+    "bias_A": -0.7739013896964463,
+    "below_A": 0.7023472278429785,
+    "r_B": 0.6162133164280666,
+    "R2_B": 0.2900072978233481,
+    "fold_B": 3.320238879833548,
+    "rmse_B": 2.339997536572605,
+    "bias_B": -0.7885222673131851,
+    "below_B": 0.7026844732227169,
+    "r_control": 0.7733194710463823,
+    "oracle_type": "MEP",
+    "r_oracle": 0.8041919631450241
+  },
+  "environment": {
+    "label": "colab-matched",
+    "python": "3.12.3",
+    "numpy": "2.0.2",
+    "pandas": "2.2.2",
+    "sklearn": "1.6.1",
+    "matplotlib": "3.10.0"
+  },
+  "completed_notebook_bytes": 3193498
+}
